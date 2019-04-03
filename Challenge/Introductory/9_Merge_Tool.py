@@ -22,13 +22,18 @@
 # Returns a single iterator object, having mapped values from all the
 # containers.
 
-# def remove_duplicates(data):
-#     for i in data:
+def remove_duplicates(data):
+    s = set()  # A set is an unordered collection with no duplicate elements
+    o =[]
+    for i in data:
+        if i not in s:
+            s.add(i)
+            o.append(i)
+    return ''.join(o)   # using to join to concatenate string
 
 def string_split(string, length):
-    print([string[i:i+3] for i in range(0, len(string), length)])
     for t in [string[i:i+length] for i in range(0, len(string), length)]:   #using the range function to get the substring and string out
-        print(t)
+        print(remove_duplicates(t))
     for part in zip(*[iter(string)]*length):
         print(part)
 
